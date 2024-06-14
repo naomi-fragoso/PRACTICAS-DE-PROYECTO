@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CECYTEM COACALCO| Cuidado de la salud Mental y prevención de adicciones.</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="icon" href="logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="color-background.js"></script>
+</head>
+<body>
+    <div id="Inicio_pagina"></div>
+    <header>
+        <nav>
+            <div class="container-hero">
+                <div class="container hero">
+                    <div class="container-logo">
+                        <img src="cecytem-logo-57EA94498B-seeklogo.com.png" alt="logo" width="65" height="75"  onclick="irAPaginaPrincipal()">
+                    </div>
+                    <div class="customer-support">
+                        <div class="content-customer-support">
+                            <span class="text1">CECYTEM COACALCO | GAFEN</span>
+                            <span class="text2">“Sin drogas no hay lío, sigue tu propio río”</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="menu">
+               <li><a href="#footer">Contacto</a></li>
+               <li><a href="#footer">Acerca De Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="espacio4"></div>
+    <div class="todoelchat">
+        <div class="texth1chat">
+            <h1>Chatbot de Apoyo</h1>
+            <div class="espacioulli"></div>
+            <p>Ingresa una palabra sobre las Drogas o Salud Mental y da clic al botón.</p>
+        </div>
+        <div class="espacioulli"></div>
+        <div class="espacioulli"></div>
+        
+        <!-- Contenedor principal del chat y la sección de palabras clave -->
+        <div id="chat-container">
+            <!-- Sección del chat -->
+            <div id="chat-section">
+                <div id="chatlogs"></div>
+                <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
+                <button class="enviarmsj" type="button" onclick="sendMessage()">Enviar</button>
+            </div>
+            
+            <!-- Sección para mostrar las opciones de palabras clave -->
+            <div id="keywords">
+                <p>Puedes preguntar sobre:</p>
+                <ul>
+                    <li>hola</li>
+                    <li>bien</li>
+                    <li>mal</li>
+                    <li>ayuda</li>
+                    <li>estres</li>
+                    <li>ansiedad</li>
+                    <li>depresion</li>
+                    <li>autoestima</li>
+                    <li>adiccion</li>
+                    <li>tristeza</li>
+                    <li>relaciones</li>
+                    <li>autocuidado</li>
+                    <li>estrategias de afrontamiento</li>
+                    <li>emociones</li>
+                    <li>apoyo social</li>
+                    <li>adios</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const responses = {
+            "hola": "Hola, ¿cómo estas?",
+            "bien": "!Wow!, me alegro mucho. Recuerda que por más bien que te sientas, cuidate de las adicciones y la salud mental",
+            "mal": "Me da mucha pena que te sientas asi, si necesitas ayuda puedes escribir alguna de las palabras sugeridas y con gusto te brindare información sobre ese tema.",
+            "ayuda": "Comunicate con nosotros atravéz de nuestro Correo Electronico :gafen07coa@gmail.com",
+            "estres": "El estrés puede ser manejado con técnicas de relajación. ¿Has intentado respirar profundamente?",
+            "ansiedad": "La ansiedad es una reacción normal. Te recomiendo hablar con un profesional si es constante.",
+            "depresion": "La depresión es una enfermedad seria, pero tratable. Te recomiendo buscar ayuda profesional lo antes posible.",
+            "autoestima": "Trabajar en tu autoestima puede mejorar tu bienestar emocional. Intenta practicar el autocuidado y reconocer tus logros.",
+            "adiccion": "Las adicciones pueden ser difíciles de superar, pero es posible con apoyo adecuado. Considera hablar con un terapeuta especializado en adicciones.",
+            "tristeza": "Es normal sentir tristeza de vez en cuando. Asegúrate de cuidarte y buscar apoyo si lo necesitas.",
+            "relaciones": "Las relaciones saludables son fundamentales para el bienestar emocional. Comunica tus necesidades y establece límites claros.",
+            "autocuidado": "El autocuidado es esencial para tu salud mental. Dedica tiempo a actividades que te traigan alegría y te ayuden a recargar energías.",
+            "estrategias de afrontamiento": "Existen muchas estrategias de afrontamiento para manejar el estrés y la ansiedad, como la meditación, el ejercicio y hablar con alguien de confianza.",
+            "emociones": "Es importante reconocer y validar tus emociones. Permítete sentir lo que sientes y busca formas saludables de expresar y procesar tus emociones.",
+            "apoyo social": "El apoyo social es clave para la salud mental. Mantén conexiones significativas con amigos y familiares y no dudes en pedir ayuda cuando la necesites.",
+            "adios": "Adiós, espero haberte ayudado."
+        };
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value.toLowerCase();
+            const chatlogs = document.getElementById('chatlogs');
+            const userMessage = document.createElement('p');
+            userMessage.textContent = "Tú: " + userInput;
+            chatlogs.appendChild(userMessage);
+            
+            let responseMessage = "Lo siento, no entiendo tu mensaje.";
+            for (let key in responses) {
+                if (userInput.includes(key)) {
+                    responseMessage = responses[key];
+                    break;
+                }
+            }
+            
+            const botMessage = document.createElement('p');
+            botMessage.textContent = "Bot: " + responseMessage;
+            chatlogs.appendChild(botMessage);
+            
+            document.getElementById('userInput').value = '';
+        }
+    </script>
+
+    <div class="espacio7"></div>
+    <footer id="footer">
+        <div class="imf-logofot">
+            <div class="espaciofooter"></div>
+            <img src="cecytem-logo-57EA94498B-seeklogo.com.png" alt="logo" width="100" height="120">
+            <div class="espaciofooter"></div>
+        </div>
+        <div class="contacto">
+            <h2>Contacto</h2>
+            <div class="espaciofooter"></div>
+            <h6>¿Tienes dudas? ¡Contáctanos!</h6>
+            <address>
+                <p>Email: <a href="mailto:gafen07coa@gmail.com">gafen07coa@gmail.com</a></p>
+                <div class="espaciofooter"></div>
+            </address>
+        </div>
+        <div class="acerca">
+            <div class="espaciofooter"></div>
+            <h2>Acerca de Nosotros</h2>
+            <div class="espacio-textacerca"></div>
+            <h6>Nosotros somos alumnos de la carrera de programación, que hemos creado esta página con el fin de hacer conscientes a los adolescentes sobre las drogas.
+                <div class="espacio-textacerca"></div>
+                <p>Alumnos:</p>
+                <div class="espacioulli"></div>
+                <ol>
+                    <li>Aguilar Bautista Elizabeth</li>
+                    <li>Alcántara Pérez José Alberto</li>
+                    <li>Cruz Aguilar José Fernando</li>
+                    <li>Guerrero Pérez Gael</li>
+                    <li>Segundo Fragoso Naomi Estrella</li>
+                </ol>
+                <div class="espacioulli"></div>
+                <br>¡Explora nuestra página y descubre más sobre nosotros!"</h6>
+            <div class="espaciofooter"></div>
+        </div>
+        <div class="redes">
+            <div class="espaciofooter"></div>
+            <h2>Redes Sociales</h2>
+            <a href="https://www.facebook.com/profile.php?id=61559078582221&mibextid=LQQJ4d" class="face">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/gafen_coacalco?igsh=ZGxxZXJkbGdpZGF3&utm_source=qr" class="insta">
+                <i class="fa-brands fa-square-instagram"></i>
+            </a>
+            <div class="espaciofooter"></div>
+        </div>
+    </footer>
+    <footer2>
+        <div class="derechos">
+            <p>&copy; 2023. Todos los derechos reservados.</p>
+        </div>
+    </footer2>
+</body>
+</html>
